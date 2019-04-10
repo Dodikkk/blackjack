@@ -1,0 +1,114 @@
+#J=Jack
+#A=Ace
+#Q=Queen
+#K=King
+from tkinter import *
+from random import randint
+root = Tk()
+root.wm_attributes('-fullscreen','true')
+h=root.winfo_screenheight()
+w=root.winfo_screenwidth()
+cards=['6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥','A♥','6♦️','7♦️','8♦️','9♦️','10♦️','J♦️','Q♦️','K♦️','A♦','6♣','7♣','8♣️','9♣️','10♣️','J♣️','Q♣️','K♣️','A♣️','6♠️','7♠️','8♠️','9♠️','10♠️','J♠️','Q♠️','K♠️','A♠️']
+def ir():
+    hh=h-100
+    inf=Toplevel(root)
+    inf.geometry('{}x{}+{}+0'.format(int(w/2),hh,200))
+    inflabel=Label(inf,height=1000,width=600,background='white',text='Правила')
+    inflabel.pack()
+def ddd():
+    root.destroy()
+def play():
+    playb.destroy()
+    b1=0
+    b2=0
+    #первая карта первого игрока
+    a=randint(0,len(cards)-1)
+    p1c1 = Label(text=cards[a],bg="black",fg="white",font="Arial 15")
+    p1c1.place(relx=0.23,rely=0.63)
+    cards.pop(a)
+    if a==0 or a==9 or a==18 or a==27:
+        b1+=6
+    elif a==1 or a==10 or a==19 or a==28:
+        b1+=7
+    elif a==2 or a==11 or a==20 or a==29:
+        b1+=8
+    elif a==3 or a==12 or a==21 or a==30:
+        b1+=9
+    elif a==8 or a==17 or a==26 or a==35:
+        b1+=11
+    else:
+        b1+=10
+    #вторая карта первого игрока
+    a=randint(0,len(cards)-1)
+    p1c2= Label(text=cards[a],bg="black",fg="white",font="Arial 15")
+    p1c2.place(relx=0.26,rely=0.63)
+    cards.pop(a)
+    if a==0 or a==9 or a==18 or a==27:
+        b1+=6
+    elif a==1 or a==10 or a==19 or a==28:
+        b1+=7
+    elif a==2 or a==11 or a==20 or a==29:
+        b1+=8
+    elif a==3 or a==12 or a==21 or a==30:
+        b1+=9
+    elif a==8 or a==17 or a==26 or a==35:
+        b1+=11
+    else:
+        b1+=10
+    a1.insert(1.0, b1)
+    #первая карта второго игрока
+    a=randint(0,len(cards)-1)
+    p2c1= Label(text=cards[a],bg="black",fg="white",font="Arial 15")
+    p2c1.place(relx=0.7,rely=0.63)
+    cards.pop(a)
+    if a==0 or a==9 or a==18 or a==27:
+        b2+=6
+    elif a==1 or a==10 or a==19 or a==28:
+        b2+=7
+    elif a==2 or a==11 or a==20 or a==29:
+        b2+=8
+    elif a==3 or a==12 or a==21 or a==30:
+        b2+=9
+    elif a==8 or a==17 or a==26 or a==35:
+        b2+=11
+    else:
+        b2+=10
+    #вторая карта второго игрока
+    a=randint(0,len(cards)-1)
+    p2c1= Label(text=cards[a],bg="black",fg="white",font="Arial 15")
+    p2c1.place(relx=0.73,rely=0.63)
+    cards.pop(a)
+    if a==0 or a==9 or a==18 or a==27:
+        b2+=6
+    elif a==1 or a==10 or a==19 or a==28:
+        b2+=7
+    elif a==2 or a==11 or a==20 or a==29:
+        b2+=8
+    elif a==3 or a==12 or a==21 or a==30:
+        b2+=9
+    elif a==8 or a==17 or a==26 or a==35:
+        b2+=11
+    else:
+        b2+=10
+    a2.insert(1.0, b2)
+root.geometry('{}x{}+0+0'.format(w,h))
+photo1=PhotoImage(file="nakonetsto.png")
+l1=Label(root,image=photo1,width=400,height=400)
+l2=Label(root,image=photo1,width=400,height=400)
+l3 = Label(text="Гравець 1", font="Arial 20")
+l4 = Label(text="Гравець 2", font="Arial 20")
+rules=Button(text='?',command=ir,font="Arial 16")
+qt=Button(text='Quit',command=ddd,font="Arial 18")
+playb=Button(text='Роздати карти',font="arial 18",command=play)
+a1=Text(root, width=3, height=1, bg="lightgrey", fg="#ffffff", font="times 25 bold")
+a2=Text(root, width=3, height=1, bg="lightgrey", fg="#ffffff", font="times 25 bold")
+a1.place(relx=0.25,rely=0.7)
+a2.place(relx=0.75,rely=0.7)
+l1.place(relx=0.15,rely=0.2)
+l2.place(relx=0.6,rely=0.2)
+l3.place(relx=0.25,rely=0.55)
+l4.place(relx=0.7,rely=0.55)
+rules.place(relx=0,rely=0)
+qt.place(relx=0.95,rely=0)
+playb.place(relx=0.45,rely=0.7)
+root.mainloop()
